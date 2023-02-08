@@ -4,9 +4,9 @@ Generate 3 csv files (base, hchp, tempo) from [this PDF](https://particulier.edf
 
 ## Prerequisite
 
-* Python 3.10
+* Python 3.11
 * Pandas (`pip install pandas`)
-* PyPDF (`pip install PyPDF`)
+* PyPDF2 (`pip install PyPDF2`)
 
 You may also want to use a virtualenv.
 
