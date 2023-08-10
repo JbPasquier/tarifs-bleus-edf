@@ -1,17 +1,20 @@
 import io
 import os
 import pandas
-from PyPDF2 import PdfFileReader
+from PyPDF2 import PdfReader
 import re
+import ssl
 from urllib.request import Request, urlopen
+
+ssl._create_default_https_context = ssl._create_unverified_context
 
 url = "https://particulier.edf.fr/content/dam/2-Actifs/Documents/Offres/Grille_prix_Tarif_Bleu.pdf"
 remote_file = urlopen(Request(url)).read()
 memory_file = io.BytesIO(remote_file)
-pdf_file = PdfFileReader(memory_file)
+pdf_file = PdfReader(memory_file)
 
 # extracting text from page
-pdf_text = pdf_file.getPage(0).extractText().splitlines()
+pdf_text = pdf_file.pages[0].extract_text().splitlines()
 next_is_base = False
 next_is_hchp = False
 next_is_tempo = False
