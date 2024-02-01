@@ -1,2 +1,3 @@
 pandas
-PyPDF
+PyPDF2
+Pyarrow
